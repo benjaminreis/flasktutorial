@@ -5,7 +5,6 @@ class Student:
    def __init__(self, jsonRow):
        print(jsonRow[0])
        print("hey yo!")
-       print(jsonRow[0][0])
        self.id = jsonRow[0]
        self.FirstName = jsonRow[1]
        self.LastName = jsonRow[2]

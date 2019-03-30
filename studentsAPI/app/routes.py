@@ -40,7 +40,7 @@ def get(student_ID):
     query = "SELECT * FROM dbo.[STUDENTS] WHERE ID = ?"
     cursor.execute(query, student_ID)
     raw = cursor.fetchall()
-    return Student.Student(raw)
+    return Student.Student(raw[0])
 
 @app.route('/Students/Create', methods=('GET', 'POST'))
 def create():
