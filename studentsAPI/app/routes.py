@@ -65,9 +65,32 @@ def edit(student_ID):
     query = "UPDATE DBO.[STUDENTS] SET "
     params = []
     json = request.get_json(force=True)
-    if (json['FirstName'] != None | json['FirstName'] != ''):
+    if ((json['FirstName'] != None) or (json['FirstName'] != '')):
         params.append(json['FirstName'])
         query += "FirstName = ? "
+    if ((json['LastName'] != None) or (json['LastName'] != '')):
+        params.append(json['LastName'])
+        query += "LastName = ? "
+    if ((json['GraduationDate'] != None) or (json['GraduationDate'] != '')):
+        params.append(json['GraduationDate'])
+        query += "GraduationDate = ? "       
+    if ((json['LoanBalance'] != None) or (json['LoanBalance'] != '')):
+        params.append(json['LoanBalance'])
+        query += "LoanBalance = ? "
+    if ((json['Servicer'] != None) or (json['Servicer'] != '')):
+        params.append(json['Servicer'])
+        query += "Servicer = ? "
+    if ((json['SchoolName'] != None) or (json['SchoolName'] != '')):
+        params.append(json['SchoolName'])
+        query += "SchoolName = ? "
+    if ((json['StudentID'] != None) or (json['StudentID'] != '')):
+        params.append(json['StudentID'])
+        query += "StudentID = ? "
+    if ((json['Status'] != None) or (json['Status'] != '')):
+        params.append(json['Status'])
+        query += "Status = ? "        
+
+
     query += "WHERE ID = ?"
     params.append(student_ID)
     cursor.execute(query, params)
