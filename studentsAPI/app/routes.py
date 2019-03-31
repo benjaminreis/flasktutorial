@@ -59,3 +59,7 @@ def create():
         cursor.execute(query, FirstName, LastName, GraduationDate, LoanBalance, Servicer, SchoolName, StudentID, Status)
         cursor.commit()
     return "success"
+
+@app.route('/Students/<int:student_ID>'', methods=('PUT'))
+def edit():
+    
