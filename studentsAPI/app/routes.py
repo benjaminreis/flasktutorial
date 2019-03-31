@@ -88,7 +88,8 @@ def edit(student_ID):
         query += "StudentID = ? "
     if ((json['Status'] != None) or (json['Status'] != '')):
         params.append(json['Status'])
-        query += "Status = ? "        
+        query += "Status = ? " 
+               
 
     query += "WHERE ID = ?"
     params.append(student_ID)
