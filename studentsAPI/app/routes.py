@@ -90,7 +90,6 @@ def edit(student_ID):
         params.append(json['Status'])
         query += "Status = ? "        
 
-
     query += "WHERE ID = ?"
     params.append(student_ID)
     cursor.execute(query, params)
