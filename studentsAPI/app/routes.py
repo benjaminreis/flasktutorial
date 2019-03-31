@@ -60,6 +60,16 @@ def create():
         cursor.commit()
     return "success"
 
-@app.route('/Students/<int:student_ID>'', methods=('PUT'))
-def edit():
-    
+@app.route('/Students/<int:student_ID>', methods=['PUT'])
+def edit(student_ID):
+    query = "UPDATE DBO.[STUDENTS] SET "
+    params = []
+    json = request.get_json(force=True)
+    if (json['FirstName'] != None | json['FirstName'] != ''):
+        params.append(json['FirstName'])
+        query += "FirstName = ? "
+    query += "WHERE ID = ?"
+    params.append(student_ID)
+    cursor.execute(query, params)
+    cursor.commit()
+    return "success"
