@@ -60,6 +60,7 @@ def create():
         if 'Servicer' in json:
             Servicer = json['Servicer']
         SchoolName = json['SchoolName']
+        
         StudentID = None
         if 'StudentID' in json:
             StudentID = json['StudentID']
